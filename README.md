@@ -71,6 +71,16 @@ class ResUnit(PFC.Module):
 It easier to see the [main.py](./main.py) than describing how to use in details here.
 
 
+# Training Example
+
+[main.py](./main.py) includes almost everything to train NN by using *parametric function classes*, run the script like, 
+
+
+```bash
+python main.py
+```
+
+
 # Feedbacks
 - Please create an issue
 - Contribution welcome!
