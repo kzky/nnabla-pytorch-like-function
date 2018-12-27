@@ -88,6 +88,6 @@ python main.py
 
 # TODO
 - Documentation
-- save_parameters (need to modify nnabla's parameter.py a bit, it is easier than duplicate codes)
+- save_parameters (need to modify nnabla's parameter.py a bit, it is better than duplicate codes)
 - Add other parametric functions
 
