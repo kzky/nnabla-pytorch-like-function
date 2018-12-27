@@ -32,7 +32,7 @@ export PYTHONPATH=$(pwd)/nnabla-pytorch-like-function:$PYTHONPATH
 
 then import the module and use in your python script, for example, like
 
-```pyton
+```python
 ...
 import parametric_function_classes as PFC
 ...
