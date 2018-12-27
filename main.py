@@ -80,7 +80,7 @@ def main():
     solver.set_parameters(model.get_parameters())
     # Data Iterator
     tdi = data_iterator_mnist(b, train=True)
-    vdi = data_iterator_mnist(b, train=True)
+    vdi = data_iterator_mnist(b, train=False)
     # Monitor
     monitor = Monitor("tmp.monitor")
     monitor_loss = MonitorSeries("Training loss", monitor, interval=10)
