@@ -86,4 +86,8 @@ python main.py
 - Contribution welcome!
 
 
+# TODO
+- Documentation
+- save_parameter (need to modify nnabla's parameter.py a bit, it is easier than duplicate codes)
+- Add other parametric functions
 
