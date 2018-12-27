@@ -68,7 +68,7 @@ class ResUnit(PFC.Module):
 ...
 ```
 
-It easier to see the [main.py](./main.py) than describing how to use in details here.
+It is easier to see the [main.py](./main.py) than describing how to use in details here.
 
 
 # Training Example
