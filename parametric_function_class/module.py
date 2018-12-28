@@ -46,3 +46,7 @@ class Module(object):
                 submodule_prefix = "{}/{}".format(prefix, name) if prefix != "" else name
                 for m in module.get_modules(memo, submodule_prefix):
                     yield m
+
+
+    def save_parameters(self, grad_only=False):
+        raise NotImplementedError("save_parameters not implemented yet.")
