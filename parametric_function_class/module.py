@@ -50,3 +50,6 @@ class Module(object):
 
     def save_parameters(self, grad_only=False):
         raise NotImplementedError("save_parameters not implemented yet.")
+
+    def load_parameters(self, path=None, params=None):
+        raise NotImplementedError("load_parameters not implemented yet.")
