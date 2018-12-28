@@ -73,7 +73,7 @@ def main():
     vpred = model(vx, test=True)
     verror = F.top_n_error(vpred, vt)
     # Check parameters
-    for k, v in model.get_parameters(grad_only=True).items():
+    for k, v in model.get_parameters(grad_only=False).items():
         print(k, v)
     # Solver
     solver = S.Adam()
