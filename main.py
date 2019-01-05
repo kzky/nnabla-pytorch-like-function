@@ -87,7 +87,7 @@ def main():
     monitor_verr = MonitorSeries("Test error", monitor, interval=1)
 
     # Training loop
-    for e in range(10):
+    for e in range(1):
         for j in range(tdi.size // b):
             i = e * tdi.size // b + j
             x.d, t.d = tdi.next()
@@ -103,6 +103,17 @@ def main():
             error += verror.d
         error /= vdi.size // b
         monitor_verr.add(i, error)
+
+    # Check Save/Load
+    model.save_parameters("model.h5")
+    model1 = Model()
+    model1.load_parameters("model.h5")
+    params0 = model.get_parameters(grad_only=False)
+    params1 = model1.get_parameters(grad_only=False)
+    for i0, i1 in zip(params0.items(), params1.items()):
+        k0, v0 = i0
+        k1, v1 = i1
+        print(k0, k1, np.allclose(v0.d, v1.d))
 
 if __name__ == '__main__':
     main()

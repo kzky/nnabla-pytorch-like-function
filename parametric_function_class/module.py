@@ -48,8 +48,28 @@ class Module(object):
                     yield m
 
 
-    def save_parameters(self, grad_only=False):
-        raise NotImplementedError("save_parameters not implemented yet.")
+    def save_parameters(self, path, grad_only=False):
+        params = self.get_parameters(grad_only=grad_only)
+        nn.save_parameters(path, params)
 
-    def load_parameters(self, path=None, params=None):
-        raise NotImplementedError("load_parameters not implemented yet.")
+
+    def load_parameters(self, path):
+        nn.load_parameters(path)
+        for v in self.get_modules():
+            if not isinstance(v, tuple):
+                continue
+            prefix, module = v
+            for k, v in module.__dict__.items():
+                if not isinstance(v, nn.Variable):
+                    continue
+                pname = k
+                name = "{}/{}".format(prefix, pname)
+                # Substitute
+                param0 = v
+                param1 = nn.parameter.pop_parameter(name)
+                if param0 is None:
+                    raise ValueError("Model does not have {} parameter.".format(name))
+                param0.d = param1.d.copy()
+                nn.logger.info("`{}` loaded.)".format(name))
+                
+                
